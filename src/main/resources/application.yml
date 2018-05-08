@@ -1,0 +1,29 @@
+server:
+  context-path: /sell
+  port: 80
+
+logging:
+  level:
+    root: info
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/weixin_sell?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: xuan
+  jpa:
+    show-sql: true
+  jackson:  #jackson转json时会忽略值为null的字段
+    default-property-inclusion: non_null
+
+wechat:
+  appID: wxdd055816d2869569
+  appsecret: 337a75b1adb73bc395d74a06468ac699
+#  mchId: 123
+#  mchKey: abc
+#  keyPath: /var/abc
+
+project:
+  domain: http://uwe2er.natappfree.cc
+  orderPageSize: 4

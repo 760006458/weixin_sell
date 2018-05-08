@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <!--d:日期；level:日志级别(-5表示左对齐，右边不足5字符用空格补齐)；
+    C/c:全类名（com.example.LogTest），file表示文件名(LogTest.java）；
+    L:代码行号（跟line一样）；msg:日志信息；n:换行;
+    logger{10}:说是10个字符就用句点隔开，但没看出来-->
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d %-5level [%thread] [%C:%L] - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.FileAppender">
+        <file>D:\myApp.log</file>
+        <encoder>
+            <pattern>%d %-5level [%thread] %logger{10} [%F:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--不行！不知道为啥-->
+    <!--<appender name="dbAppender" class="ch.qos.logback.classic.db.DBAppender">
+        &lt;!&ndash;日志异步到数据库 &ndash;&gt;
+        <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+            &lt;!&ndash;连接池 &ndash;&gt;
+            <dataSource class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <driverClass>com.mysql.jdbc.Driver</driverClass>
+                <url>jdbc:mysql://127.0.0.1:3306/weixin_sell</url>
+                <user>root</user>
+                <password>xuan</password>
+                &lt;!&ndash;<sqlDialect class="ch.qos.logback.core.db.dialect.MySQLDialect"/>&ndash;&gt;
+            </dataSource>
+        </connectionSource>
+    </appender>-->
+
+    <!--滚动记录日志：每天一个，error和info分开-->
+    <appender name="errorFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--方案1：阈值过滤器：只记录超过的，即error阈值过滤器只记录error和fatal-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <!--方案2：级别过滤器，如下配置只接受warn级别-->
+        <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>-->
+        <encoder>
+            <pattern>%d %-5level [%thread] [%F:%line] %msg%n</pattern>
+        </encoder>
+        <!--基于时间的滚动策略，还有基于大小的滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>D:\warn.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="infoFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--级别过滤器：只过滤特定级别-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <!--<onMismatch>ACCEPT</onMismatch>-->
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>DENY</onMatch>
+        </filter>
+        <encoder>
+            <pattern>%d %-5level [%thread] [%F:%line] %msg%n</pattern>
+        </encoder>
+        <!--基于时间的滚动策略，还有基于大小的滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>D:\info.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="errorFileAppender"/>
+        <appender-ref ref="infoFileAppender"/>
+    </root>
+</configuration>

@@ -1,0 +1,21 @@
+2018-03-31 19:50:38.994  INFO 6612 --- [main] LogTest                                  : Starting LogTest on xuan with PID 6612 (started by dell in D:\dell\Desktop\我的代码\weixin_sell)
+2018-03-31 19:50:38.995  INFO 6612 --- [main] LogTest                                  : No active profile set, falling back to default profiles: default
+2018-03-31 19:50:39.059  INFO 6612 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@f381794: startup date [Sat Mar 31 19:50:39 CST 2018]; root of context hierarchy
+2018-03-31 19:50:39.462  INFO 6612 --- [main] LogTest                                  : Started LogTest in 0.835 seconds (JVM running for 1.44)
+2018-03-31 19:50:39.495  INFO 6612 --- [main] LogTest                                  : info---
+2018-03-31 19:50:39.496  WARN 6612 --- [main] LogTest                                  : warn----
+2018-03-31 19:50:39.498  INFO 6612 --- [Thread-1] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@f381794: startup date [Sat Mar 31 19:50:39 CST 2018]; root of context hierarchy
+2018-03-31 19:51:51.713  INFO 11780 --- [main] LogTest                                  : Starting LogTest on xuan with PID 11780 (started by dell in D:\dell\Desktop\我的代码\weixin_sell)
+2018-03-31 19:51:51.714  INFO 11780 --- [main] LogTest                                  : No active profile set, falling back to default profiles: default
+2018-03-31 19:51:51.752  INFO 11780 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@f381794: startup date [Sat Mar 31 19:51:51 CST 2018]; root of context hierarchy
+2018-03-31 19:51:52.112  INFO 11780 --- [main] LogTest                                  : Started LogTest in 0.772 seconds (JVM running for 1.3)
+2018-03-31 19:51:52.140  INFO 11780 --- [main] LogTest                                  : info---
+2018-03-31 19:51:52.140  WARN 11780 --- [main] LogTest                                  : warn----
+2018-03-31 19:51:52.143  INFO 11780 --- [Thread-1] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@f381794: startup date [Sat Mar 31 19:51:51 CST 2018]; root of context hierarchy
+2018-03-31 19:52:04.426  INFO 15952 --- [main] LogTest                                  : Starting LogTest on xuan with PID 15952 (started by dell in D:\dell\Desktop\我的代码\weixin_sell)
+2018-03-31 19:52:04.429  INFO 15952 --- [main] LogTest                                  : No active profile set, falling back to default profiles: default
+2018-03-31 19:52:04.510  INFO 15952 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6581dc0a: startup date [Sat Mar 31 19:52:04 CST 2018]; root of context hierarchy
+2018-03-31 19:52:04.905  INFO 15952 --- [main] LogTest                                  : Started LogTest in 0.998 seconds (JVM running for 1.597)
+2018-03-31 19:52:04.934  INFO 15952 --- [main] LogTest                                  : info---
+2018-03-31 19:52:04.934  WARN 15952 --- [main] LogTest                                  : warn----
+2018-03-31 19:52:04.937  INFO 15952 --- [Thread-1] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@6581dc0a: startup date [Sat Mar 31 19:52:04 CST 2018]; root of context hierarchy

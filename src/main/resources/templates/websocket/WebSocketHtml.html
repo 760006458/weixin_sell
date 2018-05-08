@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet"></link>
+    <!--bootstrap的js基于jQuery-->
+    <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+    <title>WebSocketHtml</title>
+</head>
+<body>
+<h1>欢迎来到WebSocketHtml测试页面</h1>
+<div class="container">
+    <div class="row clearfix">
+        <audio id="myAudio" src="/sell/music/蓝莲花.mp3" loop="loop"></audio>
+        <div class="col-md-12 column">
+            <!--<a id="modal-620690" href="#myPopUp" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>-->
+
+            <div class="modal fade" id="myPopUp" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                您有新的消息
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <!--内容...-->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var websocket = null;
+    if ('websocket' in window) {
+        websocket = new WebSocket("ws://127.0.0.1:80/sell/webSocket");
+    } else {
+        alert("浏览器不支持WebSocket！");
+    }
+    websocket.open = function (event) {
+        console.log("建立连接");
+    }
+    websocket.close = function (event) {
+        console.log("关闭连接");
+    }
+    websocket.onmessage = function (event) {
+        $(".modal-body").html("<h2>" + event.data + "</h2>");
+        //弹出模态框
+        $("#myPopUp").modal('show');
+        //播放音乐
+        //$("#myAudio").play(); jquery不好使，貌似只能用js播放
+        document.getElementById("myAudio").play();
+    }
+    websocket.onerror = function () {
+        alert("通信错误");
+    }
+    window.onbeforeunload = function () {
+        websocket.close();
+    }
+</script>
+</html>
