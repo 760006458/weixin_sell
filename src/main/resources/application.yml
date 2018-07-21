@@ -27,3 +27,11 @@ wechat:
 project:
   domain: http://uwe2er.natappfree.cc
   orderPageSize: 4
+
+qrcode:
+  appid: wx8397f8696b538317
+  partner: 1473426802
+  partnerkey: 8A627A4578ACE384017C997F12D68B23
+  notifyurl: http://www.baidu.com
+#  notifyurl: http://a31ef7db.ngrok.io/WeChatPay/WeChatPayNotify
+  queryCount: 6   #用户扫码支付时，后台轮询微信“查询订单”的接口次数

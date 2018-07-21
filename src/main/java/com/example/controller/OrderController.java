@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/buyer/order")
 @Slf4j
 public class OrderController {
+
     @Autowired
     private OrderMasterService orderMasterService;
 
@@ -62,10 +63,9 @@ public class OrderController {
         return ResultVoUtil.success(map);
     }
 
-
     @GetMapping("/list")
     @ResponseBody
-    public ResultVo findOrderOne(@RequestParam String openid,HttpServletRequest request,
+    public ResultVo findOrderOne(@RequestParam String openid, HttpServletRequest request,
                                  @RequestParam(defaultValue = "0") Integer page,
                                  @RequestParam(defaultValue = "10") Integer size) {
 
@@ -100,6 +100,7 @@ public class OrderController {
     /**
      * 注意：查询和取消订单需要权限，否则别人可以随便查看和取消你的订单（只需要提供自己的openid)
      * 查询没问题，但是要根据查询结果中的openid跟页面传过来的openid比对，一致说明是一个人OK；不一致说明是两个人，要抛异常
+     *
      * @param openid
      * @param orderId
      * @return
@@ -129,5 +130,4 @@ public class OrderController {
         }
         return orderDTO;
     }
-
 }
